@@ -1,0 +1,37 @@
+public class Mappa{
+
+    private static String[][] map;
+    
+    public Mappa() {
+        map = new String[6][7];
+        for (int i = 0; i<6; i++){
+            for (int j = 0; i<7; j++){
+                map[i][j]="empty";
+            }
+        }   
+    }
+
+    public Mappa(int row, int column){
+        map = new String[row][column];
+        for (int i = 0; i<map.length; i++){
+            for (int j = 0; i<map[row].length; j++){
+                map[i][j]="empty";
+            }
+        } 
+    }
+
+    public static String getColour(int row, int column){
+        return map[row][column];
+    }
+
+    public static void addColour(int row, int column, String colour){
+        map[row][column] = colour;
+    }
+
+    
+
+    
+
+
+
+}
