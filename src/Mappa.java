@@ -28,7 +28,7 @@ public class Mappa{
         map[row][column] = colour;
     }
 
-    public static void resetGame(){
+    public void resetGame(){
         for (int i = 0; i<map.length; i++){
             for (int j = 0; j<map[i].length; j++){
                 map[i][j]="empty";
@@ -36,7 +36,7 @@ public class Mappa{
         }
     }
 
-    public static void showMatrix(){
+    public void showMatrix(){
         System.out.println(map);
         }
 }

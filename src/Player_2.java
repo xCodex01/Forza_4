@@ -2,10 +2,12 @@ public class Player_2 {
 
     private String name;
     private String colour;
+    private static boolean active;
 
     public Player_2(String aName) {
         name = aName;
         colour = "red";
+        active = false;
 
     }
 
@@ -25,5 +27,20 @@ public class Player_2 {
     public String getColour(){
         return colour;
     }
+
+    public static boolean getActive(){
+        return active;
+    }
+
+    public static void changeActive(){
+        if(active==false){
+            active = true;
+        }
+        else{
+            active = false;
+        }
+    }
+
+
     
 }
