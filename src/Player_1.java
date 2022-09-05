@@ -13,7 +13,7 @@ public class Player_1 {
             System.out.println("E' già presente una pedina");
         }
         else{
-            Mappa.addColour(row, column, colour);
+            Mappa.addColour(row, column, Player_1.this.colour);
         }
     }
 
@@ -24,6 +24,8 @@ public class Player_1 {
     public String color(){
         return colour;
     }
+
+
 
 
 

@@ -28,6 +28,21 @@ public class Mappa{
         map[row][column] = colour;
     }
 
+    public static void resetGame(){
+        for (int i = 0; i<map.length; i++){
+            for (int j = 0; j<map[i].length; j++){
+                map[i][j]="empty";
+            }
+        }
+    }
+
+    public static void showMatrix(){
+        System.out.println(map);
+        }
+    }
+
+
+
     
 
     
