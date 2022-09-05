@@ -11,7 +11,7 @@ public class Game {
         System.out.println("Inserire la grnadezza della mappa,\n sennò la grandezza di default sarà: 6x7");
         
         String row = in.next();
-        String column = in.next();
+        String column = in1.next();
 
         if(row == "" && column == ""){
             Mappa Mappa = new Mappa();
@@ -49,6 +49,9 @@ public class Game {
 
         String player_2 = player2.next();
         Player_2 p2 = new Player_2(player_2);
+
+        while(win.getWinState()==false){
+        }
 
 
         

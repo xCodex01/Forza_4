@@ -38,7 +38,18 @@ public class Mappa{
 
     public void showMatrix(){
         System.out.println(map);
-        }
+    }
+
+    public static int getMapLenght(){
+        return map.length;
+    }
+
+    public static int getMapHeight(int column){
+        return map[column].length;
+    }
+
+
+
 }
 
 
