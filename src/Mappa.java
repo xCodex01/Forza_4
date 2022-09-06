@@ -14,7 +14,7 @@ public class Mappa{
     public Mappa(int row, int column){
         map = new String[row][column];
         for (int i = 0; i<map.length; i++){
-            for (int j = 0; i<map[row].length; j++){
+            for (int j = 0; j<map[i].length; j++){
                 map[i][j]="empty";
             }
         } 
