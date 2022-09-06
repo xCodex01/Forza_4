@@ -36,21 +36,25 @@ public class Winner {
                     if(Mappa.getColour(i+1, j)=="blue" && Mappa.getColour(i+2, j)=="blue" && Mappa.getColour(i+3, j)=="blue"){
                         this.setWinner(Player_1.getName());
                         this.winTrue();
+                        break;
                     }
                     if(j-3>=0){
                         if(Mappa.getColour(i, j-1)=="blue" && Mappa.getColour(i, j-2)=="blue" && Mappa.getColour(i, j-3)=="blue"){
                             this.setWinner(Player_1.getName());
                             this.winTrue();
+                            break;
                         }
                         if(Mappa.getColour(i+1, j-1)=="blue" && Mappa.getColour(i+2, j-2)=="blue"&& Mappa.getColour(i+3, j-3)=="blue"){
                             this.setWinner(Player_1.getName());
                             this.winTrue();
+                            break;
                         }
                     }
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="blue" && Mappa.getColour(i+2, j+2)=="blue" && Mappa.getColour(i+3, j+3)=="blue"){
                             this.setWinner(Player_1.getName());
                             this.winTrue();
+                            break;
                         }
 
                     }
@@ -59,21 +63,25 @@ public class Winner {
                     if(Mappa.getColour(i+1, j)=="red" && Mappa.getColour(i+2, j)=="red" && Mappa.getColour(i+3, j)=="red"){
                         this.setWinner(Player_2.getName());
                         this.winTrue();
+                        break;
                     }
                     if(j-3>=0){
                         if(Mappa.getColour(i, j-1)=="red" && Mappa.getColour(i, j-2)=="red" && Mappa.getColour(i, j-3)=="red"){
                             this.setWinner(Player_2.getName());
                             this.winTrue();
+                            break;
                         }
                         if(Mappa.getColour(i+1, j-1)=="red" && Mappa.getColour(i+2, j-2)=="red"&& Mappa.getColour(i+3, j-3)=="red"){
                             this.setWinner(Player_2.getName());
                             this.winTrue();
+                            break;
                         }
                     }
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="red" && Mappa.getColour(i+2, j+2)=="red" && Mappa.getColour(i+3, j+3)=="red"){
                             this.setWinner(Player_2.getName());
                             this.winTrue();
+                            break;
                         }
 
                     }
