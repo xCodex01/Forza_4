@@ -50,30 +50,30 @@ public class Winner {
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="blue" && Mappa.getColour(i+2, j+2)=="blue" && Mappa.getColour(i+3, j+3)=="blue"){
                             this.setWinner(Player_1.getName());
-                            this.checkWin();
+                            this.winTrue();
                         }
 
                     }
                 }
                 if(Mappa.getColour(i, j)=="red" && i+3<Mappa.getMapLenght()){
                     if(Mappa.getColour(i+1, j)=="red" && Mappa.getColour(i+2, j)=="red" && Mappa.getColour(i+3, j)=="red"){
-                        this.setWinner(Player_1.getName());
+                        this.setWinner(Player_2.getName());
                         this.winTrue();
                     }
                     if(j-3>=0){
                         if(Mappa.getColour(i, j-1)=="red" && Mappa.getColour(i, j-2)=="red" && Mappa.getColour(i, j-3)=="red"){
-                            this.setWinner(Player_1.getName());
+                            this.setWinner(Player_2.getName());
                             this.winTrue();
                         }
                         if(Mappa.getColour(i+1, j-1)=="red" && Mappa.getColour(i+2, j-2)=="red"&& Mappa.getColour(i+3, j-3)=="red"){
-                            this.setWinner(Player_1.getName());
+                            this.setWinner(Player_2.getName());
                             this.winTrue();
                         }
                     }
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="red" && Mappa.getColour(i+2, j+2)=="red" && Mappa.getColour(i+3, j+3)=="red"){
-                            this.setWinner(Player_1.getName());
-                            this.checkWin();
+                            this.setWinner(Player_2.getName());
+                            this.winTrue();
                         }
 
                     }

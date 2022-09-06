@@ -51,6 +51,27 @@ public class Game {
         Player_2 p2 = new Player_2(player_2);
 
         while(win.getWinState()==false){
+            
+            Scanner row1 = new Scanner(System.in);
+            Scanner column1 = new Scanner(System.in);
+            System.out.println(Player_1.getName() +" inserire le coordinate della pedina blu: ");
+            int row_1 = row1.nextInt();
+            int column_1 = column1.nextInt();
+            p1.addPedina(row_1, column_1);
+            win.checkWin();
+            if(win.getWinState()){
+                break;
+            }
+
+            Scanner row2 = new Scanner(System.in);
+            Scanner column2 = new Scanner(System.in);
+            System.out.println(Player_2.getName()+" inserire le coordinate della pedina rossa: ");
+            int row_2 = row2.nextInt();
+            int column_2 = column2.nextInt();
+            p2.addPedina(row_2, column_2);
+            win.checkWin();
+
+
         }
 
         System.out.println("Il vincitore è: "+win.getWinner());

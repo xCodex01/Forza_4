@@ -10,7 +10,7 @@ public class Player_1 {
         active = true;    
     }
 
-    public static void addPedina(int row, int column){
+    public void addPedina(int row, int column){
         if (Mappa.getColour(row, column)=="red" || Mappa.getColour(row, column)== "blue"){
             System.out.println("E' già presente una pedina");
         }
