@@ -53,6 +53,10 @@ public class Game {
         while(win.getWinState()==false){
         }
 
+        System.out.println("Il vincitore è: "+win.getWinner());
+
+        
+
 
         
     }

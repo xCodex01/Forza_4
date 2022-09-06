@@ -1,7 +1,7 @@
 public class Player_2 {
 
-    private String name;
-    private String colour;
+    private static String name;
+    private static String colour;
     private static boolean active;
 
     public Player_2(String aName) {
@@ -20,7 +20,7 @@ public class Player_2 {
         }
     }
 
-    public String getName(){
+    public static String getName(){
         return name;
     }
 
