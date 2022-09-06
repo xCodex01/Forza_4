@@ -1,12 +1,12 @@
 public class Winner {
     public static boolean win;
     public static String winner;
-    private int turn;
+    private int round;
 
     public Winner(){
         win = false;
         winner = "";
-        turn = 1;
+        round = 1;
     }
 
     public void winTrue(){
@@ -85,7 +85,13 @@ public class Winner {
     }
 
     public void incrementTurn(){
-        turn++;
+        round++;
     }
+
+    public int getRound(){
+        return round;
+    }
+
+
 
 }

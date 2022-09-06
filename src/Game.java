@@ -71,10 +71,12 @@ public class Game {
             p2.addPedina(row_2, column_2);
             win.checkWin();
 
+            win.incrementTurn();
+
 
         }
 
-        System.out.println("Il vincitore è: "+win.getWinner());
+        System.out.println("Il vincitore è: "+win.getWinner()+"al turno: ");
 
         
 
