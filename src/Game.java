@@ -1,25 +1,103 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.File;
 
 public class Game {
+    
+    private static ArrayList<Player> players = new ArrayList<>();
 
     public static void main(String[] args){
-        Winner win = new Winner();
-
-        Scanner in = new Scanner(System.in);
-        Scanner in1 = new Scanner(System.in);
-
-        System.out.println("Inserire la grnadezza della mappa,\n sennò la grandezza di default sarà: 6x7");
         
-        String row = in.next();
-        String column = in1.next();
+        int s;
+        do{
+            
+            s = Menu();
 
-        if(row == "" && column == ""){
+            switch(s){
+
+                case 1:
+                    newGame();
+                    break;
+                    
+                case 2:
+                    loadGame();
+                    break;
+
+                case 3:
+                    return;
+
+                default:
+                    System.out.println("Inserire una opzione elencata");
+            }
+        }while(s<=0 && s>=4);
+        
+        
+        
+        
+
+
+        
+    }
+
+    public static int Menu(){
+        int choise;
+        System.out.println("1:Nuova Partita");
+        System.out.println("2:Carica Partita");
+        System.out.println("3:Exit");
+
+        choise = scanInt();
+        return choise;
+
+    }
+
+    public static int scanInt(){
+        Scanner scanInt = new Scanner(System.in);
+        return scanInt.nextInt();
+    }
+
+    public static String scanString(){
+        Scanner scanString = new Scanner(System.in);
+        return scanString();
+    }
+
+    public static void playGame(){
+
+        
+
+        System.out.println(Player_1.getName() +" inserire le coordinate della pedina blu: ");
+        int row_1 = scanInt();
+        int column_1 = scanInt();
+        players.get(0).addPedina(row_1, column_1);
+        Winner.checkWin();
+        if(Winner.getWinState()==true){
+            
+        }
+
+        System.out.println(Player_2.getName()+" inserire le coordinate della pedina rossa: ");
+        int row_2 = scanInt();
+        int column_2 = scanInt();
+        players.get(1).addPedina(row_2, column_2);
+        Winner.checkWin();
+        Mappa.showMatrix();
+        Winner.incrementTurn();
+
+    }
+
+    private static void newGame(){
+        Winner win = new Winner();
+        
+        System.out.println("Inserire la grnadezza della mappa,\naltrimenti la grandezza di default sarà: 6x7");
+        
+        String row = scanString();
+        String column = scanString();
+
+        if(row.isEmpty() && column.isEmpty()){
             Mappa Mappa = new Mappa();
         }
-        else if(row == ""){
+        else if(row.isEmpty() && !column.isEmpty()){
             Mappa Mappa = new Mappa(0, Integer.parseInt(column));
         }
-        else if(column == ""){
+        else if(column.isEmpty() && !row.isEmpty()){
             Mappa mappa = new Mappa(Integer.parseInt(row), 0);
 
         }
@@ -27,61 +105,44 @@ public class Game {
             Mappa Mappa = new Mappa(Integer.parseInt(row), Integer.parseInt(column));
         }
 
-        Scanner player1 =  new Scanner(System.in);
-
         System.out.println("Inserire il nome del giocatore 1: ");
 
         
-        while(!player1.hasNext()){
+        String player_1 = scanString();
+        
+        while(player_1.isEmpty()){
             System.out.println("Inserire il nome del giocatore 1:");
         }
 
-        String player_1 = player1.next();
-        Player_1 p1 = new Player_1(player_1);
-
-        Scanner player2 = new Scanner(System.in);
+        
+        Player p1 = new Player(player_1,"blue");
 
         System.out.println("Inserire il nome del giocatore 1: ");
-
-        while(!player2.hasNext()){
+        
+        String player_2 = scanString();
+        
+        while(player_2.isEmpty()){
             System.out.println("Inserire il nome del giocatore 2:");
         }
 
-        String player_2 = player2.next();
-        Player_2 p2 = new Player_2(player_2);
+        
+        Player p2 = new Player(player_2, "red");
 
-        while(win.getWinState()==false){
-            
-            Scanner row1 = new Scanner(System.in);
-            Scanner column1 = new Scanner(System.in);
-            System.out.println(Player_1.getName() +" inserire le coordinate della pedina blu: ");
-            int row_1 = row1.nextInt();
-            int column_1 = column1.nextInt();
-            p1.addPedina(row_1, column_1);
-            win.checkWin();
-            if(win.getWinState()){
-                break;
-            }
+        players.add(p1);
+        players.add(p2);
 
-            Scanner row2 = new Scanner(System.in);
-            Scanner column2 = new Scanner(System.in);
-            System.out.println(Player_2.getName()+" inserire le coordinate della pedina rossa: ");
-            int row_2 = row2.nextInt();
-            int column_2 = column2.nextInt();
-            p2.addPedina(row_2, column_2);
-            win.checkWin();
+        while(Winner.getWinState()==false){
 
-            win.incrementTurn();
-
+            playGame();
 
         }
 
         System.out.println("Il vincitore è: "+win.getWinner()+"al turno: ");
 
-        
+    }
 
+    private static void loadGame(){
 
-        
     }
     
 }

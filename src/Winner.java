@@ -1,7 +1,7 @@
 public class Winner {
     public static boolean win;
     public static String winner;
-    private int round;
+    private static int round;
 
     public Winner(){
         win = false;
@@ -9,11 +9,11 @@ public class Winner {
         round = 1;
     }
 
-    public void winTrue(){
+    public static void winTrue(){
         win = true;
     }
 
-    public void setWinner(String player){
+    public static void setWinner(String player){
         winner = player;
     }
 
@@ -21,7 +21,7 @@ public class Winner {
         System.out.println("Il vincitore è: "+winner);
     }
 
-    public boolean getWinState(){
+    public static boolean getWinState(){
         return win;
     }
 
@@ -29,31 +29,31 @@ public class Winner {
         return winner;
     }
 
-    public void checkWin(){
+    public static void checkWin(){
         for(int i = 0; i<Mappa.getMapLenght(); i++){
             for (int j = Mappa.getMapHeight(i)-1; j>0;j--){
                 if(Mappa.getColour(i, j)=="blue" && i+3<Mappa.getMapLenght()) {
                     if(Mappa.getColour(i+1, j)=="blue" && Mappa.getColour(i+2, j)=="blue" && Mappa.getColour(i+3, j)=="blue"){
-                        this.setWinner(Player_1.getName());
-                        this.winTrue();
+                        Winner.setWinner(Player_1.getName());
+                        Winner.winTrue();
                         break;
                     }
                     if(j-3>=0){
                         if(Mappa.getColour(i, j-1)=="blue" && Mappa.getColour(i, j-2)=="blue" && Mappa.getColour(i, j-3)=="blue"){
-                            this.setWinner(Player_1.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_1.getName());
+                            Winner.winTrue();
                             break;
                         }
                         if(Mappa.getColour(i+1, j-1)=="blue" && Mappa.getColour(i+2, j-2)=="blue"&& Mappa.getColour(i+3, j-3)=="blue"){
-                            this.setWinner(Player_1.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_1.getName());
+                            Winner.winTrue();
                             break;
                         }
                     }
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="blue" && Mappa.getColour(i+2, j+2)=="blue" && Mappa.getColour(i+3, j+3)=="blue"){
-                            this.setWinner(Player_1.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_1.getName());
+                            Winner.winTrue();
                             break;
                         }
 
@@ -61,26 +61,26 @@ public class Winner {
                 }
                 if(Mappa.getColour(i, j)=="red" && i+3<Mappa.getMapLenght()){
                     if(Mappa.getColour(i+1, j)=="red" && Mappa.getColour(i+2, j)=="red" && Mappa.getColour(i+3, j)=="red"){
-                        this.setWinner(Player_2.getName());
-                        this.winTrue();
+                        Winner.setWinner(Player_2.getName());
+                        Winner.winTrue();
                         break;
                     }
                     if(j-3>=0){
                         if(Mappa.getColour(i, j-1)=="red" && Mappa.getColour(i, j-2)=="red" && Mappa.getColour(i, j-3)=="red"){
-                            this.setWinner(Player_2.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_2.getName());
+                            Winner.winTrue();
                             break;
                         }
                         if(Mappa.getColour(i+1, j-1)=="red" && Mappa.getColour(i+2, j-2)=="red"&& Mappa.getColour(i+3, j-3)=="red"){
-                            this.setWinner(Player_2.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_2.getName());
+                            Winner.winTrue();
                             break;
                         }
                     }
                     if(j+3<Mappa.getMapHeight(i)){
                         if(Mappa.getColour(i+1, j+1)=="red" && Mappa.getColour(i+2, j+2)=="red" && Mappa.getColour(i+3, j+3)=="red"){
-                            this.setWinner(Player_2.getName());
-                            this.winTrue();
+                            Winner.setWinner(Player_2.getName());
+                            Winner.winTrue();
                             break;
                         }
 
@@ -92,7 +92,7 @@ public class Winner {
 
     }
 
-    public void incrementTurn(){
+    public static void incrementTurn(){
         round++;
     }
 

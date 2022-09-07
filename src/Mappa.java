@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Mappa{
 
     private static String[][] map;
@@ -36,7 +38,7 @@ public class Mappa{
         }
     }
 
-    public void showMatrix(){
+    public static void showMatrix(){
         System.out.println(map);
     }
 
@@ -46,6 +48,13 @@ public class Mappa{
 
     public static int getMapHeight(int column){
         return map[column].length;
+    }
+
+    public static void saveGame(){
+
+        File GameSaved = new File("Game_Saved.txt");
+        
+
     }
 
 
