@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 public class Game {
     
@@ -143,6 +146,57 @@ public class Game {
 
     private static void loadGame(){
 
+        
+
+    }
+
+    public static void saveGame(String p1, String p2){
+
+        String p1Name = p1;
+        String p2Name = p2;
+        String grid = "";
+        for (int i = 0; i<Mappa.getMapLenght();i++){
+            for (int j = 0;j<Mappa.getMapHeight(i);j++){
+                if(Mappa.getColour(i, j)=="empty"){
+                    grid = grid + "0";
+                }
+                if(Mappa.getColour(i, j) == "blue"){
+                    grid = grid + "1";
+                }
+                if(Mappa.getColour(i, j)=="blue"){
+                    grid = grid + "2";
+                }
+            }
+        }
+
+        File file = new File("Game_Saved.txt");
+        if(file.exists()==false){
+            createFileGame();
+        }
+
+        try{
+            FileWriter fw = new FileWriter(file.getName());
+            fw.write(p1Name+"\n");
+            fw.write(p2Name+"\n");
+            fw.write(grid+"\n");
+            fw.flush();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+
+        
+
     }
     
+   
+    private static void createFileGame(){
+        try{ File file = new File("Game_saved");
+            file.createNewFile();
+        }catch(Exception e){
+            System.out.println("File già creato");
+            e.printStackTrace();
+        }
+    }
+
 }

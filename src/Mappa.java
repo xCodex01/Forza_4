@@ -1,4 +1,9 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.LineNumberReader;
+import java.io.PrintWriter;
 
 public class Mappa{
 
@@ -50,12 +55,9 @@ public class Mappa{
         return map[column].length;
     }
 
-    public static void saveGame(){
+    
 
-        File GameSaved = new File("Game_Saved.txt");
-        
-
-    }
+    
 
 
 
