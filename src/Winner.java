@@ -33,7 +33,11 @@ public class Winner {
         for(int row = Mappa.getMapLenght()-4;row >=0; row--){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
                 if(Mappa.getColour(row, column)=="blue"){
-                    if(column+3<Mappa)
+                    if(column+3<Mappa.getMapLenght()){
+                        if(checkHorizzontal(row, column, "blue")==true){
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -80,7 +84,7 @@ public class Winner {
         return false;
     }
 
-    private static boolean checkDiagonal(int row, int column, String colour){
+    private static boolean checkDiagonalRight(int row, int column, String colour){
         if(Mappa.getColour(row+1, column+1)==colour && Mappa.getColour(row+2, column+2)==colour && Mappa.getColour(row+3, column+3)==colour){
             if(colour == "blue"){
                 Winner.setWinner(Game.getPlayer(0).getName());
@@ -92,6 +96,36 @@ public class Winner {
             return true;
         }
 
+        return false;
+    }
+
+    private static boolean checkDiagonalLeft(int row, int column, String colour){
+        if(Mappa.getColour(row+1, column-1)==colour && Mappa.getColour(row+2, column-2)==colour && Mappa.getColour(row+3, column-3)==colour){
+            if(colour == "blue"){
+                Winner.setWinner(Game.getPlayer(0).getName());
+            }
+            if(colour == "red"){
+                Winner.setWinner(Game.getPlayer(1).getName());
+            }
+            Winner.winTrue();
+            return true;
+        }
+
+        return false;
+    }
+
+    private static boolean checkDiagonal(int row, int column, String colour){
+        if(column-3<0){
+            if(checkDiagonalLeft(row, column, colour)==true){
+                return true;
+            }
+        }
+        if(column+3<Mappa.getMapHeight(row)){
+            if(checkDiagonalRight(row, column, colour)==true){
+                return true;
+            }
+        }
+        
         return false;
     }
 
