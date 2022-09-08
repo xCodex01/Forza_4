@@ -29,11 +29,11 @@ public class Winner {
         return winner;
     }
 
-    public void checkWin(){
+    public static void checkWin(){
         for(int row = Mappa.getMapLenght()-4;row >=0; row--){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
                 if(Mappa.getColour(row, column)=="blue"){
-                    
+                    if(column+3<Mappa)
                 }
             }
 

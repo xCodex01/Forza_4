@@ -67,7 +67,7 @@ public class Game {
 
         
 
-        System.out.println(Player_1.getName() +" inserire le coordinate della pedina blu: ");
+        System.out.println(players.get(0).getName() +" inserire le coordinate della pedina blu: ");
         int row_1 = scanInt();
         int column_1 = scanInt();
         players.get(0).addPedina(row_1, column_1);
@@ -76,7 +76,7 @@ public class Game {
             
         }
 
-        System.out.println(Player_2.getName()+" inserire le coordinate della pedina rossa: ");
+        System.out.println(players.get(1).getName()+" inserire le coordinate della pedina rossa: ");
         int row_2 = scanInt();
         int column_2 = scanInt();
         players.get(1).addPedina(row_2, column_2);
