@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 public class Game {
     
-    private static ArrayList<Player> players = new ArrayList<>();
+    public static ArrayList<Player> players = new ArrayList<Player>();
 
     public static void main(String[] args){
         
@@ -197,6 +197,10 @@ public class Game {
             System.out.println("File già creato");
             e.printStackTrace();
         }
+    }
+
+    public static Player getPlayer(int index){
+        return players.get(index);
     }
 
 }

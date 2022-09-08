@@ -9,7 +9,9 @@ public class Mappa{
 
     private static String[][] map;
     
+    
     public Mappa() {
+        
         map = new String[6][7];
         for (int i = 0; i<6; i++){
             for (int j = 0; i<7; j++){
@@ -51,8 +53,8 @@ public class Mappa{
         return map.length;
     }
 
-    public static int getMapHeight(int column){
-        return map[column].length;
+    public static int getMapHeight(int row){
+        return map[row].length;
     }
 
     
