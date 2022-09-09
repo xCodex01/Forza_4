@@ -1,14 +1,17 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Game {
     
     public static ArrayList<Player> players = new ArrayList<Player>();
-
+   
     public static void main(String[] args){
         
         int s;
@@ -24,6 +27,7 @@ public class Game {
                     
                 case 2:
                     loadGame();
+                    playGame();
                     break;
 
                 case 3:
@@ -73,6 +77,7 @@ public class Game {
         players.get(0).addPedina(row_1, column_1);
         Winner.checkWin();
         if(Winner.getWinState()==true){
+            return;
             
         }
 
@@ -94,19 +99,7 @@ public class Game {
         String row = scanString();
         String column = scanString();
 
-        if(row.isEmpty() && column.isEmpty()){
-            Mappa Mappa = new Mappa();
-        }
-        else if(row.isEmpty() && !column.isEmpty()){
-            Mappa Mappa = new Mappa(0, Integer.parseInt(column));
-        }
-        else if(column.isEmpty() && !row.isEmpty()){
-            Mappa mappa = new Mappa(Integer.parseInt(row), 0);
-
-        }
-        else{
-            Mappa Mappa = new Mappa(Integer.parseInt(row), Integer.parseInt(column));
-        }
+        Mappa map = new Mappa();
 
         System.out.println("Inserire il nome del giocatore 1: ");
 
@@ -146,8 +139,56 @@ public class Game {
 
     private static void loadGame(){
 
+        try(BufferedReader br = new BufferedReader(new FileReader("Gmae_Saved.txt"))){
+
+            int linesNumbers= 4;
+            for(int i = 0; i<linesNumbers;i++){
+                if(i==0){
+                    String player1Name = br.readLine();
+                    Player p1 = new Player(player1Name, "blue");
+                }
+                if(i==1){
+                    String player2Name = br.readLine();
+                    Player p2 = new Player(player2Name,"red");
+                }
+                if(i==2){
+                    String matrice = br.readLine();
+                    creatMatrix(matrice);
+                }
+                if(i==3){
+                    Winner.setRound(Integer.parseInt(br.readLine()));
+                }
+            }
+
+
+
+
+        }catch(IOException e){
+            System.out.println("Non è stato trovato un file di salvataggio");
+        }
+
         
 
+    }
+
+    private static void creatMatrix(String matrix){
+        Mappa map = new Mappa();
+        for(int row = 0; row<Mappa.getMapLenght(); row++){
+            for(int column = 0; column<Mappa.getMapHeight(row);column++){
+                for(int i = 0; i<Mappa.getMapLenght()+Mappa.getMapHeight(row); i++){
+                    char c = matrix.charAt(i);
+                    if(c=='0'){
+                        Mappa.addColour(row, column, "empty");
+                    }
+                    if(c=='1'){
+                        Mappa.addColour(row, column, "blue");
+                    }
+                    if(c=='2'){
+                        Mappa.addColour(row, column, "red");
+                    }
+                }
+            }
+        }
     }
 
     public static void saveGame(String p1, String p2){
@@ -155,6 +196,7 @@ public class Game {
         String p1Name = p1;
         String p2Name = p2;
         String grid = "";
+        String round = Integer.toString(Winner.getRound());
         for (int i = 0; i<Mappa.getMapLenght();i++){
             for (int j = 0;j<Mappa.getMapHeight(i);j++){
                 if(Mappa.getColour(i, j)=="empty"){
@@ -179,6 +221,7 @@ public class Game {
             fw.write(p1Name+"\n");
             fw.write(p2Name+"\n");
             fw.write(grid+"\n");
+            fw.write(round+"\n");
             fw.flush();
         }catch(Exception e){
             e.printStackTrace();

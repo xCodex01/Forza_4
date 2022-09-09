@@ -33,10 +33,25 @@ public class Winner {
         for(int row = Mappa.getMapLenght()-4;row >=0; row--){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
                 if(Mappa.getColour(row, column)=="blue"){
-                    if(column+3<Mappa.getMapLenght()){
-                        if(checkHorizzontal(row, column, "blue")==true){
-                            break;
-                        }
+                    if(checkDiagonal(row, column, "blue")==true){
+                        break;
+                    }
+                    if(checkHorizzontal(row, column, "blue")==true){
+                        break;
+                    }
+                    if(checkVertical(row, column, "blue")==true){
+                        break;
+                    }
+                }
+                if(Mappa.getColour(row, column)=="red"){
+                    if(checkDiagonal(row, column, "red")==true){
+                        break;
+                    }
+                    if(checkHorizzontal(row, column, "red")==true){
+                        break;
+                    }
+                    if(checkVertical(row, column, "red")==true){
+                        break;
                     }
                 }
             }
@@ -50,35 +65,43 @@ public class Winner {
         round++;
     }
 
-    public int getRound(){
+    public static int getRound(){
         return round;
     }
 
+    public static void setRound(int aRound){
+        round = aRound;
+    }
+
     private static boolean checkHorizzontal(int row, int column, String colour){
-        if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
-            if(colour == "blue"){
-                Winner.setWinner(Game.getPlayer(0).getName());
+        if(column+3<Mappa.getMapLenght()){    
+            if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
+                if(colour == "blue"){
+                    Winner.setWinner(Game.getPlayer(0).getName());
+                }
+                if(colour == "red"){
+                    Winner.setWinner(Game.getPlayer(1).getName());
+                }
+                Winner.winTrue();
+                return true;
             }
-            if(colour == "red"){
-                Winner.setWinner(Game.getPlayer(1).getName());
-            }
-            Winner.winTrue();
-            return true;
         }
 
             return false;
     }
 
     private static boolean checkVertical(int row, int column, String colour){
-        if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
-            if(colour == "blue"){
-                Winner.setWinner(Game.getPlayer(0).getName());
+        if(row+3<Mappa.getMapHeight(row)){
+            if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
+                if(colour == "blue"){
+                    Winner.setWinner(Game.getPlayer(0).getName());
+                }
+                if(colour == "red"){
+                    Winner.setWinner(Game.getPlayer(1).getName());
+                }
+                Winner.winTrue();
+                return true;
             }
-            if(colour == "red"){
-                Winner.setWinner(Game.getPlayer(1).getName());
-            }
-            Winner.winTrue();
-            return true;
         }
         
         return false;
