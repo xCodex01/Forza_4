@@ -38,7 +38,19 @@ public class Mappa{
     }
 
     public static void showMatrix(){
-        System.out.println(map);
+        for(int row = 0; row<map.length; row++){
+            for(int column = 0; column<map[row].length; column++){
+                if(column == 0){
+                    if(column<map[row].length-1){
+                        System.out.print(map[row][column]+"|"+" ");
+                    }
+                    if(column==map[row].length-1){
+                        System.out.print(map[row][column]+"|"+"\n");
+                    }
+            
+                }
+            }
+        }
     }
 
     public static int getMapLenght(){

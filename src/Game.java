@@ -78,7 +78,6 @@ public class Game {
         Winner.checkWin();
         if(Winner.getWinState()==true){
             return;
-            
         }
 
         System.out.println(players.get(1).getName()+" inserire le coordinate della pedina rossa: ");
