@@ -20,7 +20,7 @@ public class Player {
      * @param row riga della pedina
      * @param column colonna della pedina
      */
-    public boolean addPedina( int column){
+    public boolean addPedina( int column,String colour){
         
         if(column > 0){
             Mappa.addColour(column, colour);

@@ -114,19 +114,20 @@ public class Winner {
     private static boolean checkHorizzontal(int row, int column, String colour){
         //salta il controllo se non trova spazio scorrendo verso destra
         if(column>3){    
-            if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
+            if(Mappa.getColour(row, column+1)==colour && Mappa.getColour(row, column+2)==colour && Mappa.getColour(row, column+3)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
+                    Winner.winTrue();
+                    return true;
                 }
                 if(colour == " red "){
                     Winner.setWinner(Game.getPlayer(1).getName());
+                    Winner.winTrue();
+                    return true;
                 }
-                Winner.winTrue();
-                return true;
             }
         }
-
-            return false;
+        return false;
     }
 
     /**
@@ -144,12 +145,16 @@ public class Winner {
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
+                    Winner.winTrue();
+                    return true;
                 }
                 if(colour == " red "){
                     Winner.setWinner(Game.getPlayer(1).getName());
+                    Winner.winTrue();
+                    return true;
                 }
-                Winner.winTrue();
-                return true;
+                
+                
             }
         }
         
@@ -160,9 +165,13 @@ public class Winner {
         if(Mappa.getColour(row+1, column+1)==colour && Mappa.getColour(row+2, column+2)==colour && Mappa.getColour(row+3, column+3)==colour){
             if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
+                Winner.winTrue();
+                return true;
             }
             if(colour == " red "){
                 Winner.setWinner(Game.getPlayer(1).getName());
+                Winner.winTrue();
+                return true;
             }
             Winner.winTrue();
             return true;
@@ -175,12 +184,14 @@ public class Winner {
         if(Mappa.getColour(row+1, column-1)==colour && Mappa.getColour(row+2, column-2)==colour && Mappa.getColour(row+3, column-3)==colour){
             if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
+                Winner.winTrue();
+                return true;
             }
             if(colour == " red "){
                 Winner.setWinner(Game.getPlayer(1).getName());
+                Winner.winTrue();
+                return true;
             }
-            Winner.winTrue();
-            return true;
         }
 
         return false;

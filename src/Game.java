@@ -100,36 +100,48 @@ public class Game {
         
         if(first == 0){
             Mappa.showMatrix();
+            System.out.println("\n");
             first++;
         }
 
 
         System.out.println(players.get(0).getName() +" inserire la colonna della pedina blu: ");
+        System.out.println("\n");
         int column_1 = scanInt();
-        while(players.get(0).addPedina(column_1)==false){
+        while(players.get(0).addPedina(column_1,"blue ")==false){
             System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
+            System.out.println("\n");
             column_1 = scanInt();
         }
+        saveGame();
         Winner.checkWin();
         if(Winner.getWinState()==true){
             System.out.println("Il vincitore è: "+players.get(0).getName());
             return;
         }
 
+        Mappa.showMatrix();
+        System.out.println("\n");
+
         System.out.println(players.get(1).getName()+" inserire la colonna della pedina rossa: ");
+        System.out.println("\n");
         
         int column_2 = scanInt();
-        while(players.get(0).addPedina(column_2)==false){
+        while(players.get(0).addPedina(column_2, " red ")==false){
             System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
+            System.out.println("\n");
             column_2 = scanInt();
         }
+        saveGame();
         Winner.checkWin();
         if(Winner.checkTie()==true){
             System.out.println("La partita è finita in pareggio");
+            System.out.println("\n");
             return;
         }
         Mappa.showMatrix();
-        saveGame();
+        System.out.println("\n");
+        
 
     }
 
@@ -139,6 +151,7 @@ public class Game {
         Mappa map = new Mappa();
 
         System.out.println("Inserire il nome del giocatore 1: ");
+        System.out.println("\n");
 
         
         String player_1 = scanString();
@@ -146,6 +159,7 @@ public class Game {
         
 
         System.out.println("Inserire il nome del giocatore 2: ");
+        System.out.println("\n");
         
         String player_2 = scanString();
 
@@ -153,7 +167,7 @@ public class Game {
         players.add(new Player(player_2 ," red  "));
 
         
-        System.out.println(players.get(1).getName());
+    
         
         
 
@@ -169,21 +183,23 @@ public class Game {
 
     private static void loadGame(){
 
-        try(BufferedReader br = new BufferedReader(new FileReader("Gmae_Saved.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("Game_Saved.txt"))){
 
             int linesNumbers= 3;
             for(int i = 0; i<linesNumbers;i++){
                 if(i==0){
                     String player1Name = br.readLine();
-                    Player p1 = new Player(player1Name, "blue");
+                    Player p1 = new Player(player1Name, "blue ");
+                    players.add(p1);
                 }
                 if(i==1){
                     String player2Name = br.readLine();
-                    Player p2 = new Player(player2Name,"red");
+                    Player p2 = new Player(player2Name," red ");
+                    players.add(p2);
                 }
                 if(i==2){
                     String matrice = br.readLine();
-                    creatMatrix(matrice);
+                    createMatrix(matrice);
                 }
                 
             }
@@ -199,21 +215,23 @@ public class Game {
 
     }
 
-    private static void creatMatrix(String matrix){
+    private static void createMatrix(String matrix){
         Mappa map = new Mappa();
+        int i = 0;
         for(int row = 0; row<Mappa.getMapLenght(); row++){
             for(int column = 0; column<Mappa.getMapHeight(row);column++){
-                for(int i = 0; i<Mappa.getMapLenght()+Mappa.getMapHeight(row); i++){
-                    char c = matrix.charAt(i);
-                    if(c=='0'){
-                        Mappa.restoreColours(row, column, "empty");
-                    }
-                    if(c=='1'){
-                        Mappa.restoreColours(row, column, "blue");
-                    }
-                    if(c=='2'){
-                        Mappa.restoreColours(row, column, "red");
-                    }
+                char c = matrix.charAt(i);
+                if(c=='0'){
+                    Mappa.restoreColours(row, column, "empty");
+                    i++;
+                }
+                if(c=='1'){
+                   Mappa.restoreColours(row, column, "blue ");
+                   i++;
+                }
+                if(c=='2'){
+                    Mappa.restoreColours(row, column, " red ");
+                    i++;
                 }
             }
         }
@@ -230,10 +248,10 @@ public class Game {
                 if(Mappa.getColour(i, j)=="empty"){
                     grid = grid + "0";
                 }
-                if(Mappa.getColour(i, j) == "blue"){
+                if(Mappa.getColour(i, j) == "blue "){
                     grid = grid + "1";
                 }
-                if(Mappa.getColour(i, j)=="red"){
+                if(Mappa.getColour(i, j)==" red "){
                     grid = grid + "2";
                 }
             }
