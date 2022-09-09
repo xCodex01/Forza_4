@@ -9,7 +9,6 @@ public class Mappa{
 
     private static String[][] map;
     
-    
     public Mappa() {
         
         map = new String[6][7];
