@@ -10,7 +10,8 @@ import java.io.PrintWriter;
 
 public class Game {
     
-    private static ArrayList<Player> players; //ArrayList di giocatori
+    public static ArrayList<Player> players; //ArrayList di giocatori
+    private static int first = 0;
    
     public static void main(String[] args){
         
@@ -97,23 +98,37 @@ public class Game {
     public static void playGame(){
 
         
+        if(first == 0){
+            Mappa.showMatrix();
+            first++;
+        }
 
-        System.out.println(players.get(0).getName() +" inserire le coordinate della pedina blu: ");
-        int row_1 = scanInt();
+
+        System.out.println(players.get(0).getName() +" inserire la colonna della pedina blu: ");
         int column_1 = scanInt();
-        players.get(0).addPedina(row_1, column_1);
+        while(players.get(0).addPedina(column_1)==false){
+            System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
+            column_1 = scanInt();
+        }
         Winner.checkWin();
         if(Winner.getWinState()==true){
+            System.out.println("Il vincitore è: "+players.get(0).getName());
             return;
         }
 
-        System.out.println(players.get(1).getName()+" inserire le coordinate della pedina rossa: ");
-        int row_2 = scanInt();
+        System.out.println(players.get(1).getName()+" inserire la colonna della pedina rossa: ");
+        
         int column_2 = scanInt();
-        players.get(1).addPedina(row_2, column_2);
+        while(players.get(0).addPedina(column_2)==false){
+            System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
+            column_2 = scanInt();
+        }
         Winner.checkWin();
+        if(Winner.checkTie()==true){
+            System.out.println("La partita è finita in pareggio");
+            return;
+        }
         Mappa.showMatrix();
-        Winner.incrementTurn();
         saveGame();
 
     }
@@ -128,17 +143,17 @@ public class Game {
         
         String player_1 = scanString();
 
-        Player p1 = new Player(player_1,"blue");
         
-        players.add(p1);
-        
+
         System.out.println("Inserire il nome del giocatore 2: ");
         
         String player_2 = scanString();
 
-        Player p2 = new Player(player_2, "red");
+        players.add(new Player(player_1, "blue "));
+        players.add(new Player(player_2 ," red  "));
+
         
-        players.add(p2);
+        System.out.println(players.get(1).getName());
         
         
 
@@ -156,7 +171,7 @@ public class Game {
 
         try(BufferedReader br = new BufferedReader(new FileReader("Gmae_Saved.txt"))){
 
-            int linesNumbers= 4;
+            int linesNumbers= 3;
             for(int i = 0; i<linesNumbers;i++){
                 if(i==0){
                     String player1Name = br.readLine();
@@ -170,9 +185,7 @@ public class Game {
                     String matrice = br.readLine();
                     creatMatrix(matrice);
                 }
-                if(i==3){
-                    Winner.setRound(Integer.parseInt(br.readLine()));
-                }
+                
             }
 
 
@@ -193,13 +206,13 @@ public class Game {
                 for(int i = 0; i<Mappa.getMapLenght()+Mappa.getMapHeight(row); i++){
                     char c = matrix.charAt(i);
                     if(c=='0'){
-                        Mappa.addColour(row, column, "empty");
+                        Mappa.restoreColours(row, column, "empty");
                     }
                     if(c=='1'){
-                        Mappa.addColour(row, column, "blue");
+                        Mappa.restoreColours(row, column, "blue");
                     }
                     if(c=='2'){
-                        Mappa.addColour(row, column, "red");
+                        Mappa.restoreColours(row, column, "red");
                     }
                 }
             }
@@ -211,7 +224,7 @@ public class Game {
         String p1Name = players.get(0).getName();
         String p2Name = players.get(1).getName();
         String grid = "";
-        String round = Integer.toString(Winner.getRound());
+        
         for (int i = 0; i<Mappa.getMapLenght();i++){
             for (int j = 0;j<Mappa.getMapHeight(i);j++){
                 if(Mappa.getColour(i, j)=="empty"){
@@ -220,7 +233,7 @@ public class Game {
                 if(Mappa.getColour(i, j) == "blue"){
                     grid = grid + "1";
                 }
-                if(Mappa.getColour(i, j)=="blue"){
+                if(Mappa.getColour(i, j)=="red"){
                     grid = grid + "2";
                 }
             }
@@ -236,7 +249,6 @@ public class Game {
             fw.write(p1Name+"\n");
             fw.write(p2Name+"\n");
             fw.write(grid+"\n");
-            fw.write(round+"\n");
             fw.flush();
         }catch(Exception e){
             e.printStackTrace();
@@ -246,8 +258,7 @@ public class Game {
         
 
     }
-    
-   
+
     private static void createFileGame(){
         try{ File file = new File("Game_saved.txt");
             file.createNewFile();

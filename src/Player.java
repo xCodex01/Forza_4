@@ -1,8 +1,8 @@
 public class Player {
 
     
-    private static String name;  //String used for player's name
-    private static String colour; // String used for the color name
+    private String name;  //String used for player's name
+    private String colour; // String used for the color name
     
     /**
      * Costruttore del giocatore
@@ -20,20 +20,21 @@ public class Player {
      * @param row riga della pedina
      * @param column colonna della pedina
      */
-    public void addPedina(int row, int column){
-        if (Mappa.getColour(row, column)=="red" || Mappa.getColour(row, column)== "blue"){
-            System.out.println("E' già presente una pedina");
+    public boolean addPedina( int column){
+        
+        if(column > 0){
+            Mappa.addColour(column, colour);
+            return true;
         }
-        else{
-            Mappa.addColour(row, column, colour);
-        }
+        return false;
+
     }
 
     /**
      * Metodo che ritorna il nome del giocatore
      * @return il nome del giocatore
      */
-    public static String getName(){
+    public String getName(){
         return name;
     }
 

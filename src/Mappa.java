@@ -39,12 +39,19 @@ public class Mappa{
      * Metodo che aggiunge una pedina
      * del colore del giocatore tramite
      * il metodo addPedina della classe Player
-     * @param row riga della pedina
      * @param column colonna della pedina
      * @param colour colore della pedina
      */
-    public static void addColour(int row, int column, String colour){
-        map[row][column] = colour;
+    public static void addColour( int column, String colour){
+        int row = 5;
+        while(map[row][column]=="blue " || map[row][column]==" red "){
+            row=row-1;
+        }
+        map[row][column]= colour;
+    }
+
+    public static void restoreColours(int row, int column, String colour){
+        map[row][column]=colour;
     }
 
     /**
@@ -66,16 +73,9 @@ public class Mappa{
     public static void showMatrix(){
         for(int row = 0; row<map.length; row++){
             for(int column = 0; column<map[row].length; column++){
-                if(column == 0){
-                    if(column<map[row].length-1){
-                        System.out.print(map[row][column]+"|"+" ");
-                    }
-                    if(column==map[row].length-1){
-                        System.out.print(map[row][column]+"|"+"\n");
-                    }
-            
-                }
+                System.out.print(map[row][column]+" " + "| ");
             }
+            System.out.println();
         }
     }
     /**

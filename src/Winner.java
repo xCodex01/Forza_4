@@ -1,7 +1,7 @@
 public class Winner {
     public static boolean win; //variabile booleana che indica lo stato di vittoria del gioco
     public static String winner; //Stringa col nome del vincitore
-    private static int round; //round della partita
+    
 
     /**
      * Costruttore della classe winner,
@@ -11,7 +11,7 @@ public class Winner {
     public Winner(){
         win = false;
         winner = "";
-        round = 1;
+        
     }
 
     /**
@@ -66,27 +66,27 @@ public class Winner {
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
                 
                 //Controlla le pedine blue e assegna la vittoria al giocatore blu
-                if(Mappa.getColour(row, column)=="blue"){
-                    if(checkDiagonal(row, column, "blue")==true){
+                if(Mappa.getColour(row, column)=="blue "){
+                    if(checkDiagonal(row, column, "blue ")==true){
                         break;
                     }
-                    if(checkHorizzontal(row, column, "blue")==true){
+                    if(checkHorizzontal(row, column, "blue ")==true){
                         break;
                     }
-                    if(checkVertical(row, column, "blue")==true){
+                    if(checkVertical(row, column, "blue ")==true){
                         break;
                     }
                 }
 
                 //Controlla le pedine rosse e assegna la vittoria al giocatore rosso
-                if(Mappa.getColour(row, column)=="red"){
-                    if(checkDiagonal(row, column, "red")==true){
+                if(Mappa.getColour(row, column)==" red "){
+                    if(checkDiagonal(row, column, " red ")==true){
                         break;
                     }
-                    if(checkHorizzontal(row, column, "red")==true){
+                    if(checkHorizzontal(row, column, " red ")==true){
                         break;
                     }
-                    if(checkVertical(row, column, "red")==true){
+                    if(checkVertical(row, column, " red ")==true){
                         break;
                     }
                 }
@@ -95,28 +95,12 @@ public class Winner {
         }
     }
 
-    //incrementa il turno
-    public static void incrementTurn(){
-        round++;
-    }
+   
 
-    /**
-     * ritorna il numeeo dei round
-     * @return intero del numero dei round
-     */
-    public static int getRound(){
-        return round;
-    }
+    
+    
 
-    /**
-     * Imposta il numero dei round caricato
-     * dal salvataggio di una partita salvata
-     * precedentemente
-     * @param aRound numero del rounda da impostare
-     */
-    public static void setRound(int aRound){
-        round = aRound;
-    }
+    
 
     /**
      * Controlla se un giocatore ha vinto
@@ -129,12 +113,12 @@ public class Winner {
      */
     private static boolean checkHorizzontal(int row, int column, String colour){
         //salta il controllo se non trova spazio scorrendo verso destra
-        if(column+3<Mappa.getMapLenght()){    
+        if(column>3){    
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
-                if(colour == "blue"){
+                if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
                 }
-                if(colour == "red"){
+                if(colour == " red "){
                     Winner.setWinner(Game.getPlayer(1).getName());
                 }
                 Winner.winTrue();
@@ -156,12 +140,12 @@ public class Winner {
      * @return true se la sequenza è stata trovata, false se non è presente
      */
     private static boolean checkVertical(int row, int column, String colour){
-        if(row+3<Mappa.getMapHeight(row)){
+        if(row>3){
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
-                if(colour == "blue"){
+                if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
                 }
-                if(colour == "red"){
+                if(colour == " red "){
                     Winner.setWinner(Game.getPlayer(1).getName());
                 }
                 Winner.winTrue();
@@ -174,10 +158,10 @@ public class Winner {
 
     private static boolean checkDiagonalRight(int row, int column, String colour){
         if(Mappa.getColour(row+1, column+1)==colour && Mappa.getColour(row+2, column+2)==colour && Mappa.getColour(row+3, column+3)==colour){
-            if(colour == "blue"){
+            if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
             }
-            if(colour == "red"){
+            if(colour == " red "){
                 Winner.setWinner(Game.getPlayer(1).getName());
             }
             Winner.winTrue();
@@ -189,10 +173,10 @@ public class Winner {
 
     private static boolean checkDiagonalLeft(int row, int column, String colour){
         if(Mappa.getColour(row+1, column-1)==colour && Mappa.getColour(row+2, column-2)==colour && Mappa.getColour(row+3, column-3)==colour){
-            if(colour == "blue"){
+            if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
             }
-            if(colour == "red"){
+            if(colour == " red "){
                 Winner.setWinner(Game.getPlayer(1).getName());
             }
             Winner.winTrue();
@@ -203,12 +187,12 @@ public class Winner {
     }
 
     private static boolean checkDiagonal(int row, int column, String colour){
-        if(column-3<0){
+        if(column<3 && row>3){
             if(checkDiagonalLeft(row, column, colour)==true){
                 return true;
             }
         }
-        if(column+3<Mappa.getMapHeight(row)){
+        if(column>4 && row>3){
             if(checkDiagonalRight(row, column, colour)==true){
                 return true;
             }
@@ -221,10 +205,10 @@ public class Winner {
         int count = 0;
         for(int row = 0; row<Mappa.getMapLenght(); row++){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
-                if(Mappa.getColour(row, column)=="blue" || Mappa.getColour(row, column)=="blue"){
+                if(Mappa.getColour(row, column)=="blue " || Mappa.getColour(row, column)==" red "){
                     count++;
                 }
-                if(count==Mappa.getMapHeight(row)*Mappa.getMapLenght()){
+                if(count==42){
                     return true;
                 }
             }
