@@ -10,11 +10,18 @@ import java.io.PrintWriter;
 
 public class Game {
     
-    public static ArrayList<Player> players = new ArrayList<Player>();
+    public static ArrayList<Player> players = new ArrayList<Player>(); //ArrayList di giocatori
    
     public static void main(String[] args){
         
+        //intero per scegliere l'opzione
         int s;
+
+        /*
+         * Modalità di scelta
+         * delle opzioni
+         */
+
         do{
             
             s = Menu();
@@ -31,6 +38,7 @@ public class Game {
                     break;
 
                 case 3:
+                    System.out.println("Il gioco si sta chiudendo...");
                     return;
 
                 default:
@@ -45,7 +53,11 @@ public class Game {
 
         
     }
-
+    /*
+     * Menu di gioco
+     * ritorna un intero
+     * che rappresenta una opzione
+     */
     public static int Menu(){
         int choise;
         System.out.println("1:Nuova Partita");

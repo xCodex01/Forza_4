@@ -59,8 +59,6 @@ public class Winner {
         }
     }
 
-    
-
     public static void incrementTurn(){
         round++;
     }
@@ -152,6 +150,20 @@ public class Winner {
         return false;
     }
 
+    public static boolean checkTie(){
+        int count = 0;
+        for(int row = 0; row<Mappa.getMapLenght(); row++){
+            for(int column = 0; column<Mappa.getMapHeight(row); column++){
+                if(Mappa.getColour(row, column)=="blue" || Mappa.getColour(row, column)=="blue"){
+                    count++;
+                }
+                if(count==Mappa.getMapHeight(row)*Mappa.getMapLenght()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     
 
 
