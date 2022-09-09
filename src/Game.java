@@ -69,15 +69,28 @@ public class Game {
 
     }
 
+    /**
+     * Metodo per la creazione
+     * automatica di un input intero
+     * dal/dagli utenti
+     * @return un intero preso in input
+     */
     public static int scanInt(){
         Scanner scanInt = new Scanner(System.in);
         return scanInt.nextInt();
     }
 
+    /**
+     * Metodo per la creazione
+     * automatica di un input Stringa
+     * dal/dagli utenti
+     * @return una Stringa presa in input
+     */
     public static String scanString(){
         Scanner scanString = new Scanner(System.in);
         return scanString();
     }
+
 
     public static void playGame(){
 
@@ -99,6 +112,7 @@ public class Game {
         Winner.checkWin();
         Mappa.showMatrix();
         Winner.incrementTurn();
+        saveGame();
 
     }
 
@@ -202,10 +216,10 @@ public class Game {
         }
     }
 
-    public static void saveGame(String p1, String p2){
+    public static void saveGame(){
 
-        String p1Name = p1;
-        String p2Name = p2;
+        String p1Name = players.get(0).getName();
+        String p2Name = players.get(1).getName();
         String grid = "";
         String round = Integer.toString(Winner.getRound());
         for (int i = 0; i<Mappa.getMapLenght();i++){
