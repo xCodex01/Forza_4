@@ -1,37 +1,71 @@
 public class Winner {
-    public static boolean win;
-    public static String winner;
-    private static int round;
+    public static boolean win; //variabile booleana che indica lo stato di vittoria del gioco
+    public static String winner; //Stringa col nome del vincitore
+    private static int round; //round della partita
 
+    /**
+     * Costruttore della classe winner,
+     * inizializza lo stato di vittoria a false,
+     * la Stringa del giocatore vincente, imposta a 1 il numero dei round
+     */
     public Winner(){
         win = false;
         winner = "";
         round = 1;
     }
 
+    /**
+     * Cambia a true lo stato della
+     * varabile booleana win, e indica
+     * che è stato trovato un vincitore
+     */
     public static void winTrue(){
         win = true;
     }
 
+    /**
+     * Salva il vincitore
+     * della partita
+     * @param player Giocatore che ha vinto
+     */
     public static void setWinner(String player){
         winner = player;
     }
 
+    /**
+     * Stampa a video il giocatore che ha vinto
+     */
     public void printWinner(){
         System.out.println("Il vincitore è: "+winner);
     }
 
+    /**
+     * ritorna lo stato della
+     * variabile win
+     * @return la variabile win
+     */
+
     public static boolean getWinState(){
         return win;
     }
-
+    
+    /**
+     * ritorna il nome del vincitore
+     * @return il la Stringa winner
+     */
     public String getWinner(){
         return winner;
     }
 
+    /**
+     * Metodo che controlla la sequenza
+     * delle pedine nella mappa
+     */
     public static void checkWin(){
         for(int row = Mappa.getMapLenght()-4;row >=0; row--){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
+                
+                //Controlla le pedine blue e assegna la vittoria al giocatore blu
                 if(Mappa.getColour(row, column)=="blue"){
                     if(checkDiagonal(row, column, "blue")==true){
                         break;
@@ -43,6 +77,8 @@ public class Winner {
                         break;
                     }
                 }
+
+                //Controlla le pedine rosse e assegna la vittoria al giocatore rosso
                 if(Mappa.getColour(row, column)=="red"){
                     if(checkDiagonal(row, column, "red")==true){
                         break;
@@ -59,19 +95,40 @@ public class Winner {
         }
     }
 
+    //incrementa il turno
     public static void incrementTurn(){
         round++;
     }
 
+    /**
+     * ritorna il numeeo dei round
+     * @return intero del numero dei round
+     */
     public static int getRound(){
         return round;
     }
 
+    /**
+     * Imposta il numero dei round caricato
+     * dal salvataggio di una partita salvata
+     * precedentemente
+     * @param aRound numero del rounda da impostare
+     */
     public static void setRound(int aRound){
         round = aRound;
     }
 
+    /**
+     * Controlla se un giocatore ha vinto
+     * con una sequenza di 4 pedine orizzontali
+     * partendo da una pedina di un colore
+     * @param row riga di partenza del controllo
+     * @param column colonna di partenza del controllo
+     * @param colour colore da controllare
+     * @return true se la sequenza è stata trovata, false se non è presente
+     */
     private static boolean checkHorizzontal(int row, int column, String colour){
+        //salta il controllo se non trova spazio scorrendo verso destra
         if(column+3<Mappa.getMapLenght()){    
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
                 if(colour == "blue"){
@@ -88,6 +145,16 @@ public class Winner {
             return false;
     }
 
+    /**
+     * Controlla se un giocatore ha vinto
+     * se è presenta una sequenza di 4 pedine
+     * dello stesso colore scorrendo verso il basso
+     * parentdo da una pedina
+     * @param row riga di inizio del controllo
+     * @param column colonna di inizio del controllo
+     * @param colour colore del controllo
+     * @return true se la sequenza è stata trovata, false se non è presente
+     */
     private static boolean checkVertical(int row, int column, String colour){
         if(row+3<Mappa.getMapHeight(row)){
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
