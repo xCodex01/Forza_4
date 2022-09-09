@@ -17,9 +17,9 @@ public class Mappa{
     public Mappa() {
         
         map = new String[6][7];
-        for (int i = 0; i<6; i++){
-            for (int j = 0; i<7; j++){
-                map[i][j]="empty";
+        for (int row = 0; row<map.length; row++){
+            for (int column = 0; column<map[row].length; column++){
+                map[row][column]="empty";
             }
         }   
     }
@@ -49,7 +49,7 @@ public class Mappa{
 
     /**
      * Resetta la mappa del gioco
-    */
+     */
      
     public void resetGame(){
         for (int i = 0; i<map.length; i++){

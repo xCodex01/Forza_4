@@ -10,10 +10,12 @@ import java.io.PrintWriter;
 
 public class Game {
     
-    public static ArrayList<Player> players = new ArrayList<Player>(); //ArrayList di giocatori
+    private static ArrayList<Player> players; //ArrayList di giocatori
    
     public static void main(String[] args){
         
+        players = new ArrayList<Player>(); 
+
         //intero per scegliere l'opzione
         int s;
 
@@ -88,7 +90,7 @@ public class Game {
      */
     public static String scanString(){
         Scanner scanString = new Scanner(System.in);
-        return scanString();
+        return scanString.next();
     }
 
 
@@ -119,38 +121,26 @@ public class Game {
     private static void newGame(){
         Winner win = new Winner();
         
-        System.out.println("Inserire la grnadezza della mappa,\naltrimenti la grandezza di default sarà: 6x7");
-        
-        String row = scanString();
-        String column = scanString();
-
         Mappa map = new Mappa();
 
         System.out.println("Inserire il nome del giocatore 1: ");
 
         
         String player_1 = scanString();
-        
-        while(player_1.isEmpty()){
-            System.out.println("Inserire il nome del giocatore 1:");
-        }
 
-        
         Player p1 = new Player(player_1,"blue");
-
-        System.out.println("Inserire il nome del giocatore 1: ");
+        
+        players.add(p1);
+        
+        System.out.println("Inserire il nome del giocatore 2: ");
         
         String player_2 = scanString();
-        
-        while(player_2.isEmpty()){
-            System.out.println("Inserire il nome del giocatore 2:");
-        }
 
-        
         Player p2 = new Player(player_2, "red");
-
-        players.add(p1);
+        
         players.add(p2);
+        
+        
 
         while(Winner.getWinState()==false){
 
@@ -259,7 +249,7 @@ public class Game {
     
    
     private static void createFileGame(){
-        try{ File file = new File("Game_saved");
+        try{ File file = new File("Game_saved.txt");
             file.createNewFile();
         }catch(Exception e){
             System.out.println("File già creato");
