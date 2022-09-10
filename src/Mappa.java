@@ -43,27 +43,27 @@ public class Mappa{
      * @param colour colore della pedina
      */
     public static void addColour( int column, String colour){
+        //variabile che indica la riga di partenza
         int row = 5;
+        //ciclo while che esegue un controllo sulla presenza di altre pedina nella stessa coordinata
         while(map[row][column]=="blue " || map[row][column]==" red "){
+            //se presenti la colonna rimane invariata e viene decrementata di uno la riga
             row=row-1;
         }
         map[row][column]= colour;
     }
 
-    public static void restoreColours(int row, int column, String colour){
-        map[row][column]=colour;
-    }
 
     /**
-     * Resetta la mappa del gioco
+     * Metodo usato per ricreare la mappa
+     * dalla Stringa matrix ricavata dal file
+     * di salvataggio Game_Saved.txt alla line 3
+     * @param row indica la riga del colore
+     * @param column indica la colonna del colore
+     * @param colour indica che colore è
      */
-     
-    public void resetGame(){
-        for (int i = 0; i<map.length; i++){
-            for (int j = 0; j<map[i].length; j++){
-                map[i][j]="empty";
-            }
-        }
+    public static void restoreColours(int row, int column, String colour){
+        map[row][column]=colour;
     }
 
     /**

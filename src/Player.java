@@ -17,11 +17,13 @@ public class Player {
     /**
      * Metodo che aggiunge una pedina alla griglia
      * usando il colore del giocatore usato
-     * @param row riga della pedina
      * @param column colonna della pedina
+     * @param colour colore della pedima
+     * @return true se il metodo addColour viene eseguito correttamente,
+     *         false se nno viene eseguito
      */
     public boolean addPedina( int column,String colour){
-        
+        //controllo per evitare l'errore outofbound 
         if(column >= 0){
             Mappa.addColour(column, colour);
             return true;
