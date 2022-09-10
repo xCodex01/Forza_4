@@ -105,9 +105,13 @@ public class Game {
         }
 
 
-        System.out.println(players.get(0).getName() +" inserire la colonna della pedina blu: ");
+        System.out.println(players.get(0).getName() +" inserire la colonna, tra 0 e 6, della pedina blu: ");
         System.out.println("\n");
         int column_1 = scanInt();
+        while(column_1>7 || column_1<0){
+            System.out.println("La colonna selezionata non è valida"+"\nreinseire il numero della colonna tra 0 e 6");
+            column_1=scanInt();
+        }
         while(players.get(0).addPedina(column_1,"blue ")==false){
             System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
             System.out.println("\n");
@@ -125,10 +129,14 @@ public class Game {
         Mappa.showMatrix();
         System.out.println("\n");
 
-        System.out.println(players.get(1).getName()+" inserire la colonna della pedina rossa: ");
+        System.out.println(players.get(1).getName()+" inserire la colonna, tra 0 e 6, della pedina rossa: ");
         System.out.println("\n");
         
         int column_2 = scanInt();
+        while(column_2>7 || column_2<0){
+            System.out.println("La colonna selezionata non è valida"+"\nreinseire il numero della colonna tra 0 e 6");
+            column_2=scanInt();
+        }
         while(players.get(0).addPedina(column_2, " red ")==false){
             System.out.println("Selezionare un'altra colonna,"+"\nla seguente è piena");
             System.out.println("\n");
