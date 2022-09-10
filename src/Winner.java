@@ -62,7 +62,7 @@ public class Winner {
      * delle pedine nella mappa
      */
     public static void checkWin(){
-        for(int row = Mappa.getMapLenght()-4;row >=0; row--){
+        for(int row = Mappa.getMapLenght()-1;row >=0; row--){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
                 
                 //Controlla le pedine blue e assegna la vittoria al giocatore blu
@@ -113,7 +113,7 @@ public class Winner {
      */
     private static boolean checkHorizzontal(int row, int column, String colour){
         //salta il controllo se non trova spazio scorrendo verso destra
-        if(column>3){    
+        if(column<4){    
             if(Mappa.getColour(row, column+1)==colour && Mappa.getColour(row, column+2)==colour && Mappa.getColour(row, column+3)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
@@ -141,7 +141,7 @@ public class Winner {
      * @return true se la sequenza è stata trovata, false se non è presente
      */
     private static boolean checkVertical(int row, int column, String colour){
-        if(row>3){
+        if(row<3){
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
@@ -198,12 +198,12 @@ public class Winner {
     }
 
     private static boolean checkDiagonal(int row, int column, String colour){
-        if(column<3 && row>3){
+        if(column>2 && row<3){
             if(checkDiagonalLeft(row, column, colour)==true){
                 return true;
             }
         }
-        if(column>4 && row>3){
+        if(column<4 && row<3){
             if(checkDiagonalRight(row, column, colour)==true){
                 return true;
             }

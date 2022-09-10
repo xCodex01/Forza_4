@@ -22,7 +22,7 @@ public class Player {
      */
     public boolean addPedina( int column,String colour){
         
-        if(column > 0){
+        if(column >= 0){
             Mappa.addColour(column, colour);
             return true;
         }

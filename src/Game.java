@@ -116,7 +116,9 @@ public class Game {
         saveGame();
         Winner.checkWin();
         if(Winner.getWinState()==true){
+            Mappa.showMatrix();
             System.out.println("Il vincitore è: "+players.get(0).getName());
+            deleteFile();
             return;
         }
 
@@ -134,9 +136,17 @@ public class Game {
         }
         saveGame();
         Winner.checkWin();
+        if(Winner.getWinState()==true){
+            Mappa.showMatrix();
+            System.out.println("Il vincitore è: "+players.get(1).getName());
+            deleteFile();
+            return;
+        }
         if(Winner.checkTie()==true){
+            Mappa.showMatrix();
             System.out.println("La partita è finita in pareggio");
             System.out.println("\n");
+            deleteFile();
             return;
         }
         Mappa.showMatrix();
@@ -176,8 +186,6 @@ public class Game {
             playGame();
 
         }
-
-        System.out.println("Il vincitore è: "+win.getWinner()+"al turno: ");
 
     }
 
@@ -288,6 +296,15 @@ public class Game {
 
     public static Player getPlayer(int index){
         return players.get(index);
+    }
+
+    private static void deleteFile(){
+        try{
+            File file = new File("Game_Saved.txt");
+
+        }catch(Exception e){
+            System.out.println("Il file non è stato trovato");
+        }
     }
 
 }
