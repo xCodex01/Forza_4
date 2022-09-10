@@ -112,8 +112,9 @@ public class Winner {
      * @return true se la sequenza è stata trovata, false se non è presente
      */
     private static boolean checkHorizzontal(int row, int column, String colour){
-        //salta il controllo se non trova spazio scorrendo verso destra
-        if(column<4){    
+        //salta il controllo se non trova spazio sufficiente scorrendo verso destra
+        if(column<4){   
+            //controlla se le prossime 3 colonne hanno il colore fornito in input 
             if(Mappa.getColour(row, column+1)==colour && Mappa.getColour(row, column+2)==colour && Mappa.getColour(row, column+3)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
@@ -141,7 +142,9 @@ public class Winner {
      * @return true se la sequenza è stata trovata, false se non è presente
      */
     private static boolean checkVertical(int row, int column, String colour){
+        //salta il controllo se non ci sono righe sufficienti scorrendo verso il basso
         if(row<3){
+            //controlla se le prossime 4 righe verso il basso hanno il colore fornito in input
             if(Mappa.getColour(row+1, column)==colour && Mappa.getColour(row+2, column)==colour && Mappa.getColour(row+3, column)==colour){
                 if(colour == "blue "){
                     Winner.setWinner(Game.getPlayer(0).getName());
@@ -160,8 +163,19 @@ public class Winner {
         
         return false;
     }
-
+    
+    /**
+     * Controlla lungo la diagonale destra
+     * se ci sono 4 pedine dello stesso colore
+     * scorrendo le successive 3 righe verso il basso
+     * e le successive 3 colonne verso destra
+     * @param row riga di paretenza
+     * @param column colonna di partenza
+     * @param colour colore richiesto
+     * @return true se le pedine sono state trovate, false se non sono presenti
+     */
     private static boolean checkDiagonalRight(int row, int column, String colour){
+        //esegue il controllo lungo 3 prossime righe verso il basso e le 3 colonne verso destra controllando il colore rischiesto
         if(Mappa.getColour(row+1, column+1)==colour && Mappa.getColour(row+2, column+2)==colour && Mappa.getColour(row+3, column+3)==colour){
             if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
@@ -180,7 +194,18 @@ public class Winner {
         return false;
     }
 
+    /**
+     * Controlla lungo la diagonale sinistra
+     * se ci sono 4 pedine dello stesso colore
+     * scorrendo le successive 3 righe verso il basso
+     * e le successive 3 colonne verso sinistra
+     * @param row riga di paretenza
+     * @param column colonna di partenza
+     * @param colour colore richiesto
+     * @return true se le pedine sono state trovate, false se non sono presenti
+     */
     private static boolean checkDiagonalLeft(int row, int column, String colour){
+        //esegue il controllo lungo 3 prossime righe verso il basso e le 3 colonne verso sinistra controllando il colore rischiesto
         if(Mappa.getColour(row+1, column-1)==colour && Mappa.getColour(row+2, column-2)==colour && Mappa.getColour(row+3, column-3)==colour){
             if(colour == "blue "){
                 Winner.setWinner(Game.getPlayer(0).getName());
@@ -197,12 +222,23 @@ public class Winner {
         return false;
     }
 
+    /**
+     * Controlla entrambi le diganoali utilizzando i metodi
+     * checkDiagonalRight() e checkDiagonalLeft() definiti
+     * in precedenza
+     * @param row riga di partenza
+     * @param column colonna di partenza
+     * @param colour colore da controllare
+     * @return true se uno dei due metodi ritorna true, false se entrambi i metodi ritornano false
+     */
     private static boolean checkDiagonal(int row, int column, String colour){
+        //salta il controllo se non si ha spazio sufficiente verso il baddo e verso sinistra
         if(column>2 && row<3){
             if(checkDiagonalLeft(row, column, colour)==true){
                 return true;
             }
         }
+        //salta il controllo se non si ha spazio sufficiente verso il baddo e verso destra
         if(column<4 && row<3){
             if(checkDiagonalRight(row, column, colour)==true){
                 return true;
@@ -212,13 +248,19 @@ public class Winner {
         return false;
     }
 
+    //Controlla se la griglia di gioco è piena cosi da dichiarare pareggio
+    //ritorna falso se non c'è il pareggio
     public static boolean checkTie(){
+        //variabile usata per contare le caselle piene
         int count = 0;
+        //2 cicli for per eseguire il controllo di ogni casella della mappa
         for(int row = 0; row<Mappa.getMapLenght(); row++){
             for(int column = 0; column<Mappa.getMapHeight(row); column++){
+                //per qualsiasi colo trovato nelle caselle incrementa l'intero count
                 if(Mappa.getColour(row, column)=="blue " || Mappa.getColour(row, column)==" red "){
                     count++;
                 }
+                //se quanto è uguale al numero di caselle ritorna true
                 if(count==42){
                     return true;
                 }
