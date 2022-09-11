@@ -4,7 +4,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.LineNumberReader;
 import java.io.PrintWriter;
-
+/**
+ * Classe che si occupapa della griglia
+ * di gioco
+ * @author Francesco De Angelis
+ */
 public class Mappa{
 
     private static String[][] map; //matrice che genera la mappa di gioco

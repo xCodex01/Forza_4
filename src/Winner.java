@@ -1,3 +1,9 @@
+/**
+ * Classe che si occupa di eseguire controlli
+ * per permettere a uno dei 2 giocatori di vincere,
+ * o in caso dichiarare patta
+ * @author Francesco De Angelis
+ */
 public class Winner {
     public static boolean win; //variabile booleana che indica lo stato di vittoria del gioco
     public static String winner; //Stringa col nome del vincitore

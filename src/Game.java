@@ -7,7 +7,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+/**
+ * Classe che permette ai giocatori
+ * di disputare l'incontro e gestisci il
+ * salvataggio del gioco
+ * @author Francesco De Angeis
+ */
 public class Game {
     
     public static ArrayList<Player> players; //ArrayList di giocatori
@@ -100,7 +105,7 @@ public class Game {
 
     public static void playGame(){
 
-        /**
+        /*
          * Controlla se la variabile  è uguale a 0
          * per mostrare almeno una volta la matrice,
          * sia se è una nuova partita, se invece è
@@ -109,7 +114,7 @@ public class Game {
         if(first == 0){
             Mappa.showMatrix();
             System.out.println("\n");
-            /**
+            /*
              * Incrementa la variabile
              * per non mostrare piu la
              * griglia ogni volta che
@@ -140,7 +145,7 @@ public class Game {
         saveGame();
         //controlla la vittoria del giocatore 1
         Winner.checkWin();
-        /**
+        /*
          * Controla lo stato della variabile win della classe Winner,
          */
         if(Winner.getWinState()==true){
@@ -175,7 +180,7 @@ public class Game {
         //controlla la vittoria del giocatore 2
         Winner.checkWin();
 
-        /**
+        /*
          * Controla lo stato della variabile win della classe Winner,
          */
         if(Winner.getWinState()==true){

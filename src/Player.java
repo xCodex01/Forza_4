@@ -1,3 +1,7 @@
+/**
+ * Classe che genera i giocatori
+ * @author Francesco De Angelis
+ */
 public class Player {
 
     
