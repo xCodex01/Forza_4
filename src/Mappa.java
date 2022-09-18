@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 /**
  * Classe che si occupapa della griglia
  * di gioco
- * @author Francesco De Angelis
+ * @author Francesco De An      gelis
  */
 public class Mappa{
 

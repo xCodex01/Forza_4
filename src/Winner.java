@@ -102,12 +102,6 @@ public class Winner {
     }
 
    
-
-    
-    
-
-    
-
     /**
      * Controlla se un giocatore ha vinto
      * con una sequenza di 4 pedine orizzontali
