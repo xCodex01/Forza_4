@@ -210,3 +210,304 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-10-08 20:57:44.389 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.4.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 567 2022-10-08 20:58:08.487
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2022-10-08 20:58:08.488
+!MESSAGE Could not read metadata for '.org.eclipse.egit.core.cmp'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/.org.eclipse.egit.core.cmp)[567]: java.lang.Exception: The project description file (.project) for '.org.eclipse.egit.core.cmp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2480)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2231)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:814)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:806)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:763)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1028)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:511)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:572)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:401)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:170)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2022-10-08 20:58:08.488
+!MESSAGE The project description file (.project) for '.org.eclipse.egit.core.cmp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for '.org.eclipse.egit.core.cmp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2480)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2231)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:814)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:806)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:763)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1028)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:511)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:572)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:401)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:170)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.375
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" id and the "Preference Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.376
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.bundle.BundleSpyPart" id and the "Bundle Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.bundle/org.eclipse.pde.spy.bundle.BundleSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.377
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.context.ContextSpyPart" id and the "Context Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.context/org.eclipse.pde.spy.context.ContextSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.378
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.css.CssSpyPart" id and the "CSS Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.css/org.eclipse.pde.spy.css.CssSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.378
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.css.CSSScratchPadPart" id and the "CSS Scratch Pad" label.It points to the non available "bundleclass://org.eclipse.pde.spy.css/org.eclipse.pde.spy.css.CSSScratchPadPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.379
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.event.internal.ui.EventSpyPart" id and the "Event Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.event/org.eclipse.pde.spy.event.internal.ui.EventSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.379
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.pde.spy.model.ModelSpyPart" id and the "Model Spy" label.It points to the non available "bundleclass://org.eclipse.pde.spy.model/org.eclipse.pde.spy.model.ModelSpyPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.401
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.m2e.core.views.MavenRepositoryView" id and the "Maven Repositories" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.402
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.m2e.core.views.MavenLifecycleMappingsView" id and the "Maven Lifecycle Mappings" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.402
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.m2e.core.views.MavenBuild" id and the "Maven Workspace Build" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.402
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.tips.ide.tipPart" id and the "Tip of the Day" label.It points to the non available "bundleclass://org.eclipse.tips.ide/org.eclipse.tips.ide.internal.TipPart" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.404
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.oomph.p2.ui.RepositoryExplorer" id and the "Repository Explorer" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.404
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.wb.core.StructureView" id and the "Structure" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.404
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.wb.core.PaletteView" id and the "Palette" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.404
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.wst.xml.ui.views.annotations.XMLAnnotationsView" id and the "Documentation" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.405
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.wst.xml.ui.contentmodel.view" id and the "Content Model" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.405
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.buildship.ui.views.taskview" id and the "Gradle Tasks" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.405
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.buildship.ui.views.executionview" id and the "Gradle Executions" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.406
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.debug.ui.launchView" id and the "Launch Configurations" label.It points to the non available "bundleclass://org.eclipse.debug.ui.launchview/org.eclipse.debug.ui.launchview.internal.view.LaunchViewImpl" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.406
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.eclemma.ui.CoverageView" id and the "Coverage" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.410
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.tm.terminal.view.ui.TerminalsView" id and the "Terminal" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2022-10-08 20:58:19.410
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.tcf.te.ui.terminals.TerminalsView" id and the "Terminals (Old)" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-10-08 20:58:19.463
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\franc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-10-09 20:01:49.946 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.4.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-10-09 20:02:18.677
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\franc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.sirius 4 0 2022-10-09 20:03:58.757
+!MESSAGE A representation file cannot be added as semantic resource.
+!STACK 0
+java.lang.IllegalArgumentException: A representation file cannot be added as semantic resource.
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.doAddSemanticResource(DAnalysisSessionImpl.java:655)
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.addSemanticResource(DAnalysisSessionImpl.java:632)
+	at org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand.doExecute(AddSemanticResourceCommand.java:80)
+	at org.eclipse.emf.transaction.RecordingCommand.execute(RecordingCommand.java:135)
+	at org.eclipse.emf.common.command.CompoundCommand.execute(CompoundCommand.java:261)
+	at org.eclipse.emf.workspace.EMFCommandOperation.doExecute(EMFCommandOperation.java:119)
+	at org.eclipse.emf.workspace.AbstractEMFOperation.execute(AbstractEMFOperation.java:150)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:496)
+	at org.eclipse.emf.workspace.impl.WorkspaceCommandStackImpl.doExecute(WorkspaceCommandStackImpl.java:208)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:165)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:219)
+	at org.eclipse.sirius.business.internal.modelingproject.manager.AttachSemanticResourcesJob.run(AttachSemanticResourcesJob.java:71)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.sirius.ui 4 0 2022-10-09 20:03:58.867
+!MESSAGE 
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:445)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:352)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:468)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.createAndRegisterNewSemanticModel(GraphicalSemanticModelsHandler.java:362)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.lambda$0(GraphicalSemanticModelsHandler.java:325)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler$4.widgetSelected(GraphicalSemanticModelsHandler.java:966)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+Caused by: java.lang.IllegalArgumentException: A representation file cannot be added as semantic resource.
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.doAddSemanticResource(DAnalysisSessionImpl.java:655)
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.addSemanticResource(DAnalysisSessionImpl.java:632)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler$1.doExecute(GraphicalSemanticModelsHandler.java:366)
+	at org.eclipse.emf.transaction.RecordingCommand.execute(RecordingCommand.java:135)
+	at org.eclipse.emf.workspace.EMFCommandOperation.doExecute(EMFCommandOperation.java:119)
+	at org.eclipse.emf.workspace.AbstractEMFOperation.execute(AbstractEMFOperation.java:150)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:496)
+	at org.eclipse.emf.workspace.impl.WorkspaceCommandStackImpl.doExecute(WorkspaceCommandStackImpl.java:208)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:165)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:219)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.lambda$5(GraphicalSemanticModelsHandler.java:363)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:436)
+	... 32 more
+Root exception:
+java.lang.IllegalArgumentException: A representation file cannot be added as semantic resource.
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.doAddSemanticResource(DAnalysisSessionImpl.java:655)
+	at org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl.addSemanticResource(DAnalysisSessionImpl.java:632)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler$1.doExecute(GraphicalSemanticModelsHandler.java:366)
+	at org.eclipse.emf.transaction.RecordingCommand.execute(RecordingCommand.java:135)
+	at org.eclipse.emf.workspace.EMFCommandOperation.doExecute(EMFCommandOperation.java:119)
+	at org.eclipse.emf.workspace.AbstractEMFOperation.execute(AbstractEMFOperation.java:150)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:496)
+	at org.eclipse.emf.workspace.impl.WorkspaceCommandStackImpl.doExecute(WorkspaceCommandStackImpl.java:208)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:165)
+	at org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack.execute(AbstractTransactionalCommandStack.java:219)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.lambda$5(GraphicalSemanticModelsHandler.java:363)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:436)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:352)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:468)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.createAndRegisterNewSemanticModel(GraphicalSemanticModelsHandler.java:362)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler.lambda$0(GraphicalSemanticModelsHandler.java:325)
+	at org.eclipse.sirius.ui.editor.internal.graphicalcomponents.GraphicalSemanticModelsHandler$4.widgetSelected(GraphicalSemanticModelsHandler.java:966)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
